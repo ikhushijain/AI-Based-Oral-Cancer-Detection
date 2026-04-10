@@ -1,0 +1,13 @@
+torch
+torchvision
+flask
+pillow
+flask_cors
+python-dotenv
+bcrypt
+jwt
+flask-jwt-extended
+scikit-learn
+matplotlib
+seaborn
+

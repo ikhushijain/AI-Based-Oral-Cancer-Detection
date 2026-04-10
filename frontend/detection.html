@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection - AI MedTech</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-text">AI MedTech</span>
+                <span class="brand-subtitle">HEALTHCARE AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="challenge.html" class="nav-link">Challenge</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                <li><a href="detection.html" class="nav-link active">Detection</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-cta" onclick="document.getElementById('fileInput').click()">
+                Try Detection <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Detection Section -->
+    <section class="detection-section">
+        <div class="container">
+            <div class="detection-header">
+                <h1 class="page-title">Oral Cancer Detection</h1>
+                <p class="page-subtitle">AI-powered preliminary analysis for early detection</p>
+            </div>
+
+            <div class="upload-card">
+                <div class="upload-header">
+                    <h2>Upload Oral Cavity Image</h2>
+                    <p>Our AI will analyze your image for potential signs of oral cancer</p>
+                </div>
+                
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Choose an image or drag it here</h3>
+                    <p>JPG, PNG up to 10MB</p>
+                    
+                    <input type="file" id="fileInput" accept="image/*" onchange="handleFile(event)">
+                    <label for="fileInput" class="file-upload-label">
+                        <i class="fas fa-image"></i>
+                        <span id="fileLabel">Choose Image</span>
+                    </label>
+                </div>
+
+                <div id="imagePreview" class="image-preview hidden">
+                    <img id="previewImg" src="" alt="Preview">
+                    <button class="remove-image" onclick="removeImage()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <button id="analyzeBtn" class="analyze-btn" onclick="startAnalysis()" disabled>
+                    <i class="fas fa-microscope"></i>
+                    <span>Analyze Image</span>
+                </button>
+            </div>
+
+            <div class="detection-info">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Image Guidelines</h3>
+                        <ul>
+                            <li>Ensure good lighting</li>
+                            <li>Capture clear, focused image</li>
+                            <li>Include entire area of concern</li>
+                            <li>Avoid blur and shadows</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Privacy Protected</h3>
+                        <p>Your images are processed securely and never stored. All analysis happens in real-time with complete privacy protection.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Instant Results</h3>
+                        <p>Get comprehensive analysis in under 3 seconds with confidence scores and medical recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="resultSection" class="result-section hidden">
+        <div class="container">
+            <div class="result-card">
+                <div class="result-header">
+                    <h2>Analysis Results</h2>
+                    <div id="resultTimestamp"></div>
+                </div>
+
+                <div id="resultContent" class="result-content">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+
+                <div class="result-actions">
+                    <button class="btn-secondary" onclick="resetAnalysis()">
+                        <i class="fas fa-redo"></i>
+                        New Analysis
+                    </button>
+                    <button class="btn-primary" onclick="downloadReport()">
+                        <i class="fas fa-download"></i>
+                        Download Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AI MedTech</h4>
+                    <p>Advanced healthcare AI solutions for early disease detection</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html">Documentation</a></li>
+                        <li><a href="resources.html">Research Papers</a></li>
+                        <li><a href="resources.html">API Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Medical Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI MedTech. For medical screening purposes only. Always consult healthcare professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Analyzing image...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

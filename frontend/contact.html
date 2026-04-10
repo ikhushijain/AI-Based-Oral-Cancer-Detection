@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - AI MedTech</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-text">AI MedTech</span>
+                <span class="brand-subtitle">HEALTHCARE AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="challenge.html" class="nav-link">Challenge</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                <li><a href="detection.html" class="nav-link">Detection</a></li>
+                <li><a href="resources.html" class="nav-link">Resources</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <button class="nav-cta" onclick="window.location.href='detection.html'">
+                Try Detection <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h1 class="page-title">Contact Us</h1>
+                <p class="page-subtitle">Get in touch with our team for partnerships, support, or inquiries</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <div class="form-card">
+                        <h2>Send us a Message</h2>
+                        <div id="formStatus" class="form-status hidden"></div>
+                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="organization">Organization</label>
+                                <input type="text" id="organization" name="organization" placeholder="Company/Institution Name">
+                                <span class="error-message" id="organizationError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a topic</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="research">Research Collaboration</option>
+                                    <option value="media">Media & Press</option>
+                                    <option value="feedback">Feedback & Suggestions</option>
+                                </select>
+                                <span class="error-message" id="subjectError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for updates
+                                </label>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="urgent" name="urgent">
+                                    <span class="checkmark"></span>
+                                    Mark as urgent
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary" id="submitBtn">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span id="submitBtnText">Send Message</span>
+                                </button>
+                                <button type="button" class="btn-secondary" onclick="resetForm()">
+                                    <i class="fas fa-redo"></i>
+                                    Clear Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contact-info-container">
+                    <div class="info-card">
+                        <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                        <div class="contact-details">
+                            <p><strong>General Inquiries:</strong> info@aimedtech.com</p>
+                            <p><strong>Technical Support:</strong> support@aimedtech.com</p>
+                            <p><strong>Partnerships:</strong> partners@aimedtech.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-phone"></i> Call Us</h3>
+                        <div class="contact-details">
+                            <p><strong>Main Office:</strong> +1 (555) 123-4567</p>
+                            <p><strong>Support Line:</strong> +1 (555) 987-6543</p>
+                            <p><strong>Hours:</strong> Mon-Fri, 9AM-6PM EST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+                        <div class="contact-details">
+                            <p><strong>Headquarters:</strong></p>
+                            <p>123 Medical Innovation Drive</p>
+                            <p>San Francisco, CA 94105</p>
+                            <p>United States</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-locations">
+                <h2>Our Global Presence</h2>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <div class="location-header">
+                            <i class="fas fa-globe-americas"></i>
+                            <h3>North America</h3>
+                        </div>
+                        <div class="location-details">
+                            <p><strong>San Francisco, CA</strong></p>
+                            <p>Research & Development</p>
+                            <p><strong>New York, NY</strong></p>
+                            <p>Sales & Marketing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-card">
+                        <div class="location-header">
+                            <i class="fas fa-globe-europe"></i>
+                            <h3>Europe</h3>
+                        </div>
+                        <div class="location-details">
+                            <p><strong>London, UK</strong></p>
+                            <p>European Operations</p>
+                            <p><strong>Berlin, DE</strong></p>
+                            <p>Technical Support</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-card">
+                        <div class="location-header">
+                            <i class="fas fa-globe-asia"></i>
+                            <h3>Asia Pacific</h3>
+                        </div>
+                        <div class="location-details">
+                            <p><strong>Singapore</strong></p>
+                            <p>Regional Headquarters</p>
+                            <p><strong>Tokyo, JP</strong></p>
+                            <p>Research Partnerships</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-social">
+                <h2>Connect With Us</h2>
+                <div class="social-grid">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-medium"></i>
+                        <span>Medium</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AI MedTech</h4>
+                    <p>Advanced healthcare AI solutions for early disease detection</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html">Documentation</a></li>
+                        <li><a href="resources.html">Research Papers</a></li>
+                        <li><a href="resources.html">API Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Medical Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI MedTech. For medical screening purposes only. Always consult healthcare professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form validation and submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Clear previous errors
+            clearErrors();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Validate form
+            if (!validateForm(data)) {
+                return;
+            }
+            
+            // Show loading state
+            showLoadingState();
+            
+            // Send to Google Sheets
+            sendToGoogleSheets(data);
+        }
+        
+        // Form validation
+        function validateForm(data) {
+            let isValid = true;
+            
+            // Name validation
+            if (!data.name || data.name.trim().length < 2) {
+                showError('nameError', 'Please enter your full name (at least 2 characters)');
+                isValid = false;
+            }
+            
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!data.email || !emailPattern.test(data.email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Phone validation (optional but if provided, should be valid)
+            if (data.phone && data.phone.trim()) {
+                const phonePattern = /^[\d\s\-\(\)\+]+$/;
+                if (!phonePattern.test(data.phone.replace(/\s/g, ''))) {
+                    showError('phoneError', 'Please enter a valid phone number');
+                    isValid = false;
+                }
+            }
+            
+            // Subject validation
+            if (!data.subject) {
+                showError('subjectError', 'Please select a subject');
+                isValid = false;
+            }
+            
+            // Message validation
+            if (!data.message || data.message.trim().length < 10) {
+                showError('messageError', 'Please enter a message (at least 10 characters)');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        // Error display
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        // Clear errors
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.textContent = '';
+                element.style.display = 'none';
+            });
+        }
+        
+        // Loading state
+        function showLoadingState() {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitBtnText = document.getElementById('submitBtnText');
+            
+            submitBtn.disabled = true;
+            submitBtnText.textContent = 'Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span id="submitBtnText">Sending...</span>';
+        }
+        
+        // Reset loading state
+        function resetLoadingState() {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitBtnText = document.getElementById('submitBtnText');
+            
+            submitBtn.disabled = false;
+            submitBtnText.textContent = 'Send Message';
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span id="submitBtnText">Send Message</span>';
+        }
+        
+        // Send to Google Sheets
+        function sendToGoogleSheets(data) {
+            // Google Sheets Web App URL - Replace with your actual Google Apps Script URL
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1234567890/exec';
+            
+            const payload = {
+                name: data.name,
+                email: data.email,
+                phone: data.phone || '',
+                organization: data.organization || '',
+                subject: data.subject,
+                message: data.message,
+                newsletter: data.newsletter ? 'Yes' : 'No',
+                urgent: data.urgent ? 'Yes' : 'No',
+                timestamp: new Date().toISOString()
+            };
+            
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'success') {
+                    showSuccess('Your message has been sent successfully! We will get back to you within 24 hours.');
+                    event.target.reset();
+                    clearErrors();
+                } else {
+                    showError('formStatus', 'Failed to send message. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError('formStatus', 'Failed to send message. Please try again later.');
+            })
+            .finally(() => {
+                resetLoadingState();
+            });
+        }
+        
+        // Show success message
+        function showSuccess(message) {
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.className = 'form-status success';
+            statusDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            statusDiv.style.display = 'block';
+        }
+        
+        // Reset form
+        function resetForm() {
+            const form = document.getElementById('contactForm');
+            form.reset();
+            clearErrors();
+            
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.style.display = 'none';
+            
+            resetLoadingState();
+        }
+        
+        // Real-time validation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add real-time validation listeners
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const organizationInput = document.getElementById('organization');
+            const subjectSelect = document.getElementById('subject');
+            const messageTextarea = document.getElementById('message');
+            
+            // Name validation on blur
+            nameInput.addEventListener('blur', function() {
+                if (this.value.trim().length < 2) {
+                    showError('nameError', 'Name must be at least 2 characters');
+                } else {
+                    document.getElementById('nameError').style.display = 'none';
+                }
+            });
+            
+            // Email validation on blur
+            emailInput.addEventListener('blur', function() {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(this.value)) {
+                    showError('emailError', 'Please enter a valid email address');
+                } else {
+                    document.getElementById('emailError').style.display = 'none';
+                }
+            });
+            
+            // Phone validation on blur
+            phoneInput.addEventListener('blur', function() {
+                if (this.value.trim()) {
+                    const phonePattern = /^[\d\s\-\(\)\+]+$/;
+                    if (!phonePattern.test(this.value.replace(/\s/g, ''))) {
+                        showError('phoneError', 'Please enter a valid phone number');
+                    } else {
+                        document.getElementById('phoneError').style.display = 'none';
+                    }
+                } else {
+                    document.getElementById('phoneError').style.display = 'none';
+                }
+            });
+            
+            // Subject validation on change
+            subjectSelect.addEventListener('change', function() {
+                if (!this.value) {
+                    showError('subjectError', 'Please select a subject');
+                } else {
+                    document.getElementById('subjectError').style.display = 'none';
+                }
+            });
+            
+            // Message validation on blur
+            messageTextarea.addEventListener('blur', function() {
+                if (this.value.trim().length < 10) {
+                    showError('messageError', 'Message must be at least 10 characters');
+                } else {
+                    document.getElementById('messageError').style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
